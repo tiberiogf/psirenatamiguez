@@ -16,8 +16,8 @@
   --color-white: #ffffff;
   --color-black: #1a1a1a;
 
-  --font-family: 'Krub', sans-serif;
-  --font-heading: 'Baloo Thambi 2', cursive;
+  --font-family: 'Open Sans', sans-serif;
+  --font-heading: 'Source Serif 4', serif;
 
   --fs-xs: clamp(0.75rem, 0.7rem + 0.25vw, 0.875rem);
   --fs-sm: clamp(0.875rem, 0.8rem + 0.35vw, 1rem);
@@ -126,7 +126,7 @@ ul {
 .section-title {
   font-family: var(--font-heading);
   font-size: var(--fs-xl);
-  font-weight: var(--fw-bold);
+  font-weight: var(--fw-semibold);
   color: var(--color-text);
   line-height: 1.2;
   margin-bottom: 1.5rem;
@@ -174,7 +174,7 @@ ul {
 .btn--outline {
   background: transparent;
   color: var(--color-primary);
-  /*border-color: var(--color-primary);*/
+  border-color: var(--color-primary);
 }
 
 .btn--outline:hover {
@@ -361,7 +361,7 @@ ul {
     180deg,
     rgba(2, 73, 79, 0.3) 0%,
     rgba(2, 73, 79, 0.5) 50%,
-    rgba(2, 73, 79, 0.7) 100%
+      var(--color-bg) 100%
   );
 }
 
@@ -382,13 +382,14 @@ ul {
 .hero__title {
   font-family: var(--font-heading);
   font-size: var(--fs-2xl);
-  font-weight: 800;
+  font-weight: 600;
   line-height: 1.1;
   margin-bottom: 1.5rem;
-  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 150%);
+  color: var(--color-primary);
+  /*background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 150%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  background-clip: text;
+  background-clip: text;*/
   letter-spacing: -0.03em;
   text-shadow: 0 2px 12px rgba(79, 88, 90, 0.18);
   animation: heroTitleFadeIn 1s ease-out both;
@@ -396,7 +397,7 @@ ul {
 }
 
 .hero__subtitle {
-  font-size: var(--fs-lg);
+  font-size: var(--fs-md);
   font-weight: var(--fw-medium);
   color: var(--color-text-primary);
   max-width: 400px;
@@ -563,7 +564,7 @@ ul {
 
 /* Service Card */
 .service-card {
-  background: var(--color-white);
+  position: relative;
   border-radius: var(--radius-lg);
   overflow: hidden;
   box-shadow: var(--shadow-sm);
@@ -572,6 +573,14 @@ ul {
     box-shadow var(--transition-base);
   display: flex;
   flex-direction: column;
+  justify-content: flex-end;
+  min-height: 400px;
+}
+
+@media (min-width: 768px) {
+  .service-card {
+    aspect-ratio: 343 / 605;
+  }
 }
 
 .service-card:hover {
@@ -580,10 +589,11 @@ ul {
 }
 
 .service-card__img {
-  position: relative;
+  position: absolute;
+  inset: 0;
   width: 100%;
-  aspect-ratio: 4 / 3;
-  overflow: hidden;
+  height: 100%;
+  z-index: 0;
 }
 
 .service-card__img img {
@@ -625,31 +635,62 @@ ul {
 }
 
 .service-card__body {
-  padding: clamp(1.25rem, 1rem + 1.5vw, 2rem);
+  position: relative;
+  z-index: 1;
+  padding: clamp(1.25rem, 1rem + 1.5vw, 1.5rem);
   display: flex;
   flex-direction: column;
-  flex: 1;
+  justify-content: flex-end;
+  gap: 1.125rem;
+  background: linear-gradient(180deg, rgba(247, 245, 233, 0) 25.476%, rgba(247, 245, 233, 0.9) 64.51%, rgba(247, 245, 233, 1) 100%);
+  height: 100%;
 }
 
 .service-card__title {
   font-family: var(--font-heading);
-  font-size: clamp(1.15rem, 1rem + 0.8vw, 1.5rem);
-  font-weight: var(--fw-bold);
-  color: var(--color-text);
-  margin-bottom: 0.75rem;
+  font-size: clamp(1.25rem, 1rem + 0.8vw, 1.5rem);
+  font-weight: var(--fw-semibold);
+  color: #02494f;
   line-height: 1.3;
 }
 
 .service-card__text {
-  color: var(--color-text-secondary);
+  color: #005f61;
   font-size: var(--fs-sm);
-  flex: 1;
-  margin-bottom: 1.5rem;
   line-height: 1.7;
 }
 
-.service-card .btn {
+/* Button class for service card */
+.btn--text-arrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: var(--font-family);
+  font-weight: var(--fw-semibold);
+  font-size: 1rem;
+  color: #e85405;
+  background: transparent;
+  padding: 0;
+  border: none;
+  cursor: pointer;
+  transition: transform var(--transition-fast), color var(--transition-fast);
   align-self: flex-start;
+}
+
+.btn--text-arrow svg {
+  width: 24px;
+  height: 24px;
+  fill: none;
+  stroke: currentColor;
+  transition: transform var(--transition-fast);
+}
+
+.btn--text-arrow:hover {
+  transform: translateY(-2px);
+}
+
+.btn--text-arrow:hover svg {
+  transform: translateX(4px);
 }
 
 /* ============================================
@@ -882,7 +923,7 @@ ul {
 .service-modal__title {
   font-family: var(--font-heading);
   font-size: var(--fs-lg);
-  font-weight: var(--fw-bold);
+  font-weight: var(--fw-semibold);
   color: var(--color-text);
   margin-bottom: 1.25rem;
   line-height: 1.3;
