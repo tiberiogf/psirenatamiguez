@@ -9,6 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initScrollReveal();
   initSmoothScroll();
   initServiceModal();
+  initCarousel();
 });
 
 /* ---------- Navbar scroll effect ---------- */
@@ -68,8 +69,8 @@ function initMobileMenu() {
   // Close on outside click
   document.addEventListener('click', (e) => {
     if (menu.classList.contains('open') &&
-        !menu.contains(e.target) &&
-        !toggle.contains(e.target)) {
+      !menu.contains(e.target) &&
+      !toggle.contains(e.target)) {
       menu.classList.remove('open');
       toggle.classList.remove('active');
       toggle.setAttribute('aria-expanded', 'false');
@@ -152,24 +153,34 @@ function initSmoothScroll() {
 
 /* ---------- Service Modal ---------- */
 const SERVICE_DATA = {
-  atendimento: {
-    title: 'Atendimento Terapêutico',
-    image: 'resources/img/1 at.jpg',
-    text: `<p>O Acompanhamento Terapêutico é uma clínica nômade que acompanha o movimento do cliente na vida cotidiana. Caminhamos lado a lado para que a autonomia seja desenvolvida.</p>
-<p>O processo terapêutico não é apenas dentro de um consultório, ele circula em diferentes espaços que fazem sentido em cada contexto clínico a partir das necessidades terapêuticas e de suporte para cada cliente.</p>`,
-  },
   psicoterapia: {
     title: 'Psicoterapia',
-    image: 'resources/img/2 psico.jpg',
-    text: `<p>Processo terapêutico fundamentado na Gestalt Terapia e na Abordagem Biocêntrica, com foco na sua experiência presente e no resgate da sua potência de vida.</p>
-<p>A psicoterapia oferece um espaço seguro e acolhedor onde você pode explorar suas questões internas, padrões emocionais e relacionais, ampliando sua consciência e encontrando novos caminhos para lidar com os desafios da vida.</p>`,
+    image: 'resources/img/2 psico d.jpg',
+    text: `<p>A psicoterapia é um espaço seguro de escuta e cuidado, um tempo dedicado à sua saúde e à construção de uma qualidade de vida.</p>
+<p>O processo terapêutico acontece por meio de encontros regulares, que propõem a ampliação da consciência sobre si, sobre os próprios desejos, formas de se relacionar e caminhos possíveis para uma vida mais integrada, autêntica e plena de sentido.</p>
+<p>Desde o primeiro encontro, busco oferecer um ambiente acolhedor, sensível e de profundo respeito, favorecendo o desenvolvimento de maior clareza sobre si, a mobilização dos próprios recursos e a construção de formas mais significativas de viver.</p>
+<p>Ao longo desse processo, trabalhamos questões emocionais, relacionais e existenciais, buscando compreender e transformar fatores que possam estar gerando ansiedade, angústia, medo, insegurança ou outros sentimentos e padrões de comportamento que impactam negativamente a sua vida cotidiana e as suas relações.</p>
+<p>Cada processo é construído de forma singular, respeitando o tempo, a história e as necessidades de cada pessoa.</p>
+<p>Meu trabalho é fundamentado na Gestalt-terapia e na Psicoterapia de Abordagem Biocêntrica, duas perspectivas clínicas centradas na presença e na conexão com a sua potência de vida.</p>
+<p>Os atendimentos são realizados de forma individual para jovens e adultos. As modalidades de atendimento são online ou presencial no endereço: <strong><a href="https://maps.app.goo.gl/mKM9ETDVXbFeKbLU6" target="_blank" rel="noopener noreferrer">Praça Quinze de Novembro, 153, Sala 702, Centro, Florianópolis.</a></strong></p>`,
+  },
+  atendimento: {
+    title: 'AT com suporte Clínico (Acompanhamento Terapêutico)',
+    image: 'resources/img/1 at d.jpg',
+    text: `<p>Nesta forma clínica, caminhamos lado a lado, construindo possibilidades para que a autonomia e a participação na vida sejam ampliadas. O foco está em sustentar processos que, muitas vezes, não se dão apenas no consultório, mas nas relações, nos territórios e nas experiências do dia a dia.</p>
+          <p> O trabalho tem como foco sustentar e ampliar a autonomia, a circulação social e a construção de novos modos de estar no mundo, enquanto circulamos pelo mundo.</p>
+          <p>A clínica se desloca para a rua, em casa, em espaços públicos ou onde fizer sentido dentro do contexto de cada pessoa. Cada acompanhamento é singular, construído a partir das necessidades, do momento de vida e dos objetivos terapêuticos do cliente.</p>
+          <p>O trabalho é construído de forma individualizada, a partir de um plano terapêutico, considerando as demandas específicas de cada caso.</p>`,
   },
   biodanza: {
-    title: 'Biodanza',
-    image: 'resources/img/3 bio.jpg',
+    title: 'Biodanza - SRT',
+    image: 'resources/img/3 bio d.jpg',
     text: `<p>A Biodanza é um potente processo de desenvolvimento em grupo, onde as relações, o corpo, o movimento e a dança são protagonistas. Criamos um ambiente seguro e nutridor para que possamos fazer nosso caminho de desenvolvimento, nos expressar e ampliar nossa consciência. A prática da Biodanza tem efeitos terapêuticos e auxiliam (e aceleram) nas transformações existenciais para um estilo de vida para maior conexão consigo, com os outros e com a natureza/ambientes.</p>
 <p>Melhora o sono, amplia a nossa sensibilidade e percepção corporal, aumenta a vitalidade, diminui a ansiedade, entre outros benefícios.</p>
-<p>As aulas são semanais. Entre em contato para agendar uma aula experimental.</p>`,
+<p>As aulas são semanais. Entre em contato para agendar uma aula experimental.</p>
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; margin-top: 1.5rem; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+  <iframe src="https://www.youtube.com/embed/1egnVjlT2lA" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</div>`,
   },
 };
 
@@ -183,9 +194,9 @@ function initServiceModal() {
   const modalTitle = document.getElementById('modal-title');
   const modalText = document.getElementById('modal-text');
 
-  // Open modal from "Saiba mais" buttons
+  // Open modal from "Saiba mais" buttons / clickable cards
   document.querySelectorAll('[data-service]').forEach(btn => {
-    btn.addEventListener('click', (e) => {
+    const triggerModal = (e) => {
       e.preventDefault();
       const serviceKey = btn.getAttribute('data-service');
       const data = SERVICE_DATA[serviceKey];
@@ -203,6 +214,13 @@ function initServiceModal() {
       }
 
       openServiceModal();
+    };
+
+    btn.addEventListener('click', triggerModal);
+    btn.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        triggerModal(e);
+      }
     });
   });
 
@@ -229,4 +247,162 @@ function closeServiceModal() {
   modal.classList.remove('open');
   modal.setAttribute('aria-hidden', 'true');
   document.body.style.overflow = '';
+}
+
+/* ---------- Carousel Depoimentos ---------- */
+function initCarousel() {
+  const track = document.getElementById('carousel-track');
+  const slides = Array.from(document.querySelectorAll('.carousel-slide'));
+  const indicators = Array.from(document.querySelectorAll('#carousel-indicators .indicator'));
+  const progressBar = document.getElementById('carousel-progress-bar');
+
+  if (!track || slides.length === 0) return;
+
+  let currentIndex = 0;
+  const slideDuration = 10000; // 10 seconds
+  let startTime;
+  let animationFrame;
+  let isTransitioning = false;
+
+  function updateCarousel(index, smooth = true) {
+    if (smooth) {
+      track.style.transition = 'transform 0.5s ease-in-out';
+      slides.forEach(s => s.style.transition = 'opacity 0.5s ease-in-out');
+    } else {
+      track.style.transition = 'none';
+      slides.forEach(s => s.style.transition = 'none');
+    }
+
+    slides.forEach(s => s.classList.remove('active'));
+    indicators.forEach(i => i.classList.remove('active'));
+
+    slides[index].classList.add('active');
+    indicators[index].classList.add('active');
+
+    const slideWidth = slides[0].getBoundingClientRect().width;
+    track.style.transform = `translateX(-${index * slideWidth}px)`;
+
+    currentIndex = index;
+
+    if (smooth) {
+      isTransitioning = true;
+    }
+  }
+
+  function nextSlide() {
+    if (isTransitioning) return;
+    let nextIndex = currentIndex + 1;
+    if (nextIndex >= slides.length) {
+      nextIndex = 0;
+    }
+    updateCarousel(nextIndex);
+    startProgress();
+  }
+
+  function prevSlide() {
+    if (isTransitioning) return;
+    let prevIndex = currentIndex - 1;
+    if (prevIndex < 0) {
+      prevIndex = slides.length - 1;
+    }
+    updateCarousel(prevIndex);
+    startProgress();
+  }
+
+  function startProgress() {
+    cancelAnimationFrame(animationFrame);
+    startTime = performance.now();
+
+    function animateProgress(time) {
+      const elapsed = time - startTime;
+      let progress = (elapsed / slideDuration) * 100;
+
+      if (progress >= 100) {
+        progress = 100;
+        progressBar.style.width = `${progress}%`;
+        nextSlide();
+        return;
+      }
+
+      progressBar.style.width = `${progress}%`;
+      animationFrame = requestAnimationFrame(animateProgress);
+    }
+
+    animationFrame = requestAnimationFrame(animateProgress);
+  }
+
+  indicators.forEach((indicator, index) => {
+    indicator.addEventListener('click', () => {
+      if (isTransitioning) return;
+      updateCarousel(index);
+      startProgress();
+    });
+  });
+
+  // Chevron navigation buttons
+  const prevBtn = document.querySelector('.carousel-btn.prev-btn');
+  const nextBtn = document.querySelector('.carousel-btn.next-btn');
+
+  if (prevBtn) {
+    prevBtn.addEventListener('click', () => {
+      prevSlide();
+    });
+  }
+
+  if (nextBtn) {
+    nextBtn.addEventListener('click', () => {
+      nextSlide();
+    });
+  }
+
+  // Swipe support for touch devices (tablet/mobile only <= 960px)
+  let touchStartX = 0;
+  let touchEndX = 0;
+  let touchStartY = 0;
+  let touchEndY = 0;
+  const swipeThreshold = 50;
+
+  const container = document.querySelector('.carousel-container');
+  if (container) {
+    container.addEventListener('touchstart', (e) => {
+      if (window.innerWidth > 960) return;
+      touchStartX = e.changedTouches[0].screenX;
+      touchStartY = e.changedTouches[0].screenY;
+    }, { passive: true });
+
+    container.addEventListener('touchend', (e) => {
+      if (window.innerWidth > 960) return;
+      touchEndX = e.changedTouches[0].screenX;
+      touchEndY = e.changedTouches[0].screenY;
+      handleSwipe();
+    }, { passive: true });
+  }
+
+  function handleSwipe() {
+    const diffX = touchEndX - touchStartX;
+    const diffY = touchEndY - touchStartY;
+
+    if (Math.abs(diffX) > Math.abs(diffY)) {
+      if (Math.abs(diffX) > swipeThreshold) {
+        if (diffX < 0) {
+          nextSlide();
+        } else {
+          prevSlide();
+        }
+      }
+    }
+  }
+
+  window.addEventListener('resize', () => {
+    updateCarousel(currentIndex, false);
+  });
+
+  track.addEventListener('transitionend', () => {
+    isTransitioning = false;
+  });
+
+  setTimeout(() => {
+    updateCarousel(0, false);
+    startProgress();
+  }, 100);
 }

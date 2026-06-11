@@ -26,15 +26,17 @@
   <!-- ====== NAVBAR ====== -->
   <nav id="navbar" class="navbar">
     <div class="navbar__inner container">
-      <a href="#" class="navbar__brand">Renata Miguez</a>
+      <a href="#" class="navbar__brand">Psicóloga Renata Miguez <!--CRP-12/31282--></a>
       <button id="menu-toggle" class="navbar__toggle" aria-label="Abrir menu" aria-expanded="false">
+        <span class="navbar__toggle-bar"></span>
         <span class="navbar__toggle-bar"></span>
         <span class="navbar__toggle-bar"></span>
         <span class="navbar__toggle-bar"></span>
       </button>
       <ul id="nav-menu" class="navbar__menu">
-        <li><a href="#sobre" class="navbar__link">Sobre</a></li>
         <li><a href="#servicos" class="navbar__link">Serviços</a></li>
+        <li><a href="#sobre" class="navbar__link">Sobre</a></li>
+        <li><a href="#depoimentos" class="navbar__link">Depoimentos</a></li>
         <li><a href="#contato" class="navbar__link">Contato</a></li>
         <!-- <li><a href="#contato" class="navbar__link navbar__link--cta">Vamos conversar?</a></li> -->
       </ul>
@@ -45,45 +47,13 @@
   <header id="hero" class="hero">
     <div class="hero__overlay"></div>
     <div class="hero__content container">
-      <h1 class="hero__title">A vida <br>no centro</h1>
-      <p class="hero__subtitle">Psicoterapia, acolhimento e caminhos terapêuticos para uma vida mais inteira, sincera e
-        plena. Um espaço seguro para você se reconectar consigo.</p>
+      <h1 class="hero__title">A Vida <br>no centro</h1>
+      <p class="hero__subtitle">Psicoterapia, Acompanhamento Terapêutico e Biodanza:<br> Práticas terapêuticas para conectar <br>com a sua potência de vida.</p>
       <a href="#contato" class="btn btn--primary hero__cta">Vamos conversar?</a>
     </div>
   </header>
 
-  <!-- ====== SOBRE MIM ====== -->
-  <section id="sobre" class="sobre">
-    <div class="sobre__inner container">
-      <div class="sobre__text">
-        <span class="section-tag">Sobre mim</span>
-        <h2 class="section-title">Renata Miguez</h2>
-        <p>Me chamo Renata, prazer. Minha conexão com os caminhos terapêuticos iniciou em 2011 na Biodanza e na
-          Psicoterapia, venho desde então, estudando teórica e vivencialmente para poder acompanhar outros em suas
-          jornadas em busca de uma vida mais plena e com menos sofrimento. Sou psicóloga com especialização em Gestalt
-          Terapia e Psicoterapia de Abordagem Biocêntrica e facilitadora de Biodanza.</p>
-        <p>O fio que tece todas essas práticas é o compromisso com a Vida, um viver mais inteiro e sincero. A proposta é
-          sempre responder a pergunta: <em>Como posso caminhar em direção a sentir-me mais satisfeita com o presente em
-            que vivo?</em> Isso não implica ou pressupõe caminhos fáceis, rápidos ou respostas mágicas. Todo processo
-          terapêutico é composto de um passo depois de outro, respeitando o ritmo e a singularidade de cada pessoa.</p>
-      </div>
-      <div class="sobre__photo">
-        <div class="sobre__photo-frame">
-          <!-- Placeholder para foto de perfil -->
-          <div class="sobre__photo-placeholder">
-            <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24" fill="none"
-              stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
-              <circle cx="12" cy="7" r="4" />
-            </svg>
-            <span>Foto de perfil</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ====== SERVIÇOS ====== -->
+<!-- ====== SERVIÇOS ====== -->
   <section id="servicos" class="servicos">
     <div class="container">
       <div class="servicos__header">
@@ -95,68 +65,189 @@
       <div class="servicos__grid">
 
         <!-- Card 1 -->
-        <article class="service-card" id="service-atendimento">
+        <article class="service-card" id="service-psicoterapia" data-service="psicoterapia" tabindex="0" role="button">
           <div class="service-card__img">
-            <img src="resources/img/1 at.jpg"
-              alt="Atendimento terapeutico — pegadas de uma pessoa na areia molhada perto do mar" loading="lazy">
+            <img src="resources/img/2 psico.png" alt="Psicoterapia — pessoa em sessão terapêutica" loading="lazy">
           </div>
           <div class="service-card__body">
-            <h3 class="service-card__title">Atendimento Terapêutico</h3>
-            <p class="service-card__text">Um espaço de escuta acolhedora e profunda, onde você pode explorar suas
-              questões internas com segurança e cuidado, encontrando novos caminhos para lidar com os desafios da vida.
-            </p>
-            <button class="btn--text-arrow" data-service="atendimento">
+            <h3 class="service-card__title">Psicoterapia</h3>
+            <span class="service-card__subtitle">para jovens e adultos online e presencial</span>
+            <p class="service-card__text">Processo terapêutico fundamentado na Gestalt Terapia e na Abordagem
+              Biocêntrica, com foco na sua experiência presente e no resgate da sua potência de vida.</p>
+            <span class="btn--text-arrow">
               Saiba mais
               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                 stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M5 12h14" />
                 <path d="m12 5 7 7-7 7" />
               </svg>
-            </button>
+            </span>
           </div>
         </article>
 
         <!-- Card 2 -->
-        <article class="service-card" id="service-psicoterapia">
+        <article class="service-card" id="service-atendimento" data-service="atendimento" tabindex="0" role="button">
           <div class="service-card__img">
-            <img src="resources/img/2 psico.jpg" alt="Psicoterapia — pessoa em sessão terapêutica" loading="lazy">
+            <img src="resources/img/1 at.png"
+              alt="Acompanhamento Terapêutico — pegadas de uma pessoa na areia molhada perto do mar" loading="lazy">
           </div>
           <div class="service-card__body">
-            <h3 class="service-card__title">Psicoterapia</h3>
-            <p class="service-card__text">Processo terapêutico fundamentado na Gestalt Terapia e na Abordagem
-              Biocêntrica, com foco na sua experiência presente e no resgate da sua potência de vida.</p>
-            <button class="btn--text-arrow" data-service="psicoterapia">
+            <h3 class="service-card__title">AT com suporte Clínico</h3>
+            <span class="service-card__subtitle">Acompanhamento Terapêutico</span>
+            <p class="service-card__text">Um espaço de escuta acolhedora e profunda, onde você pode explorar suas
+              questões internas com segurança e cuidado, encontrando novos caminhos para lidar com os desafios da vida.
+            </p>
+            <span class="btn--text-arrow">
               Saiba mais
               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                 stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M5 12h14" />
                 <path d="m12 5 7 7-7 7" />
               </svg>
-            </button>
+            </span>
           </div>
         </article>
 
         <!-- Card 3 -->
-        <article class="service-card" id="service-biodanza">
+        <article class="service-card" id="service-biodanza" data-service="biodanza" tabindex="0" role="button">
           <div class="service-card__img">
             <img src="resources/img/3 bio.jpg" alt="Biodanza — mãos entrelaçadas representando conexão humana"
               loading="lazy">
           </div>
           <div class="service-card__body">
             <h3 class="service-card__title">Biodanza</h3>
+            <span class="service-card__subtitle">SRT</span>
             <p class="service-card__text">Sistema vivencial de integração humana que utiliza a música, o movimento e a
               emoção para promover encontros profundos consigo e com o outro.</p>
-            <button class="btn--text-arrow" data-service="biodanza">
+            <span class="btn--text-arrow">
               Saiba mais
               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                 stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M5 12h14" />
                 <path d="m12 5 7 7-7 7" />
               </svg>
-            </button>
+            </span>
           </div>
         </article>
 
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== SOBRE MIM ====== -->
+  <section id="sobre" class="sobre">
+    <div class="sobre__inner container">
+      <div class="sobre__text">
+        <span class="section-tag">Sobre mim</span>
+        <h2 class="section-title">Renata Miguez</h2>
+        <p>Me chamo Renata, prazer. Minha conexão com os caminhos terapêuticos iniciou em 2011 com a Biodanza e a
+          Psicoterapia, venho desde então, estudando teórica e vivencialmente para poder acompanhar outros em suas
+          jornadas em busca de uma vida mais plena, com menos sofrimento. Sou psicóloga com especialização em Gestalt
+          Terapia e Psicoterapia de Abordagem Biocêntrica e facilitadora de Biodanza.</p>
+        <p>O fio que tece todas essas práticas é o compromisso com a Vida, um viver mais inteiro e sincero. A proposta é
+          sempre responder a pergunta: <em>Como posso caminhar em direção a sentir-me mais satisfeita com o presente em
+            que vivo?</em> Isso não implica ou pressupõe caminhos fáceis, rápidos ou respostas mágicas. Todo processo
+          terapêutico é composto de um passo depois de outro, respeitando o ritmo e a singularidade de cada pessoa.</p>
+      </div>
+      <div class="sobre__photo">
+        <div class="sobre__photo-frame">
+          <img src="resources/img/Foto pessoal.png" alt="Renata Miguez - Psicóloga" loading="lazy">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  
+
+  <!-- ====== DEPOIMENTOS ====== -->
+  <section id="depoimentos" class="depoimentos">
+    <div class="container">
+      <div class="depoimentos__header reveal">
+        <span class="section-tag">Depoimentos</span>
+        <h2 class="section-title">Como foi a experiência</h2>
+      </div>
+
+      <div class="carousel-container reveal reveal--delay-1">
+        <div class="carousel-track" id="carousel-track">
+          <!-- Slide 1 -->
+          <div class="carousel-slide active">
+            <div class="depoimento-card">
+              <svg class="quote-icon" xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24"
+                fill="currentColor">
+                <path
+                  d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
+              </svg>
+              <p class="depoimento-card__text">A Renata é uma psicóloga incrível, ela me acompanha há três anos e eu me sinto muito acolhida nesse processo. É visível o quanto as sessões tem efeito positivo na minha vida. 
+                Quando eu procurei a terapia, estava em um momento bem complicado, e o acolhimento da Renata foi fundamental para que eu me compreendesse melhor e lidasse com os desafios com mais autonomia e confiança.
+                Eu me sinto muito privilegiada por ser acompanhada por uma pessoa tão sensível e profissional.</p>
+              <div class="depoimento-card__author">
+                <span class="author-name">Bruna</span>
+                <span class="author-service">Psicoterapia</span>
+              </div>
+            </div>
+          </div>
+          <!-- Slide 2 -->
+          <div class="carousel-slide">
+            <div class="depoimento-card">
+              <svg class="quote-icon" xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24"
+                fill="currentColor">
+                <path
+                  d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
+              </svg>
+              <p class="depoimento-card__text">Caminhar com a Renata no acompanhamento terapêutico mudou minha forma de
+                encarar o dia a dia. A presença dela nos desafios cotidianos me trouxe a autonomia que eu tanto
+                precisava.</p>
+              <div class="depoimento-card__author">
+                <span class="author-name">Fernando</span>
+                <span class="author-service">Acompanhamento Terapêutico</span>
+              </div>
+            </div>
+          </div>
+          <!-- Slide 3 -->
+          <div class="carousel-slide">
+            <div class="depoimento-card">
+              <svg class="quote-icon" xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24"
+                fill="currentColor">
+                <path
+                  d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
+              </svg>
+              <p class="depoimento-card__text">Por muito tempo eu vivi desconectado do agora e do corpo com uma cabeça excessivamente ativa.
+                Quando conheci a Biodanza através da Renata pude finalmente exercitar esse estado de presença que eu buscava, e o que é ainda melhor: com o acolhimento afetuoso e bem humorado da Rê e dos colegas do grupo.
+                Cada aula é única mas em todas elas eu volto pra casa com uma sensação de bem estar e de que essa prática literalmente transformou minha vida, a forma como me relaciono comigo mesmo e com as outras pessoas.
+              </p>
+              <div class="depoimento-card__author">
+                <span class="author-name">Tibério</span>
+                <span class="author-service">Biodanza</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Indicadores e Progress Bar -->
+        <div class="carousel-controls">
+          <div class="carousel-nav-wrapper">
+            <button class="carousel-btn prev-btn" aria-label="Depoimento anterior">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="15 18 9 12 15 6"></polyline>
+              </svg>
+            </button>
+            <div class="carousel-indicators" id="carousel-indicators">
+              <button class="indicator active" aria-label="Slide 1"></button>
+              <button class="indicator" aria-label="Slide 2"></button>
+              <button class="indicator" aria-label="Slide 3"></button>
+            </div>
+            <button class="carousel-btn next-btn" aria-label="Próximo depoimento">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="9 18 15 12 9 6"></polyline>
+              </svg>
+            </button>
+          </div>
+          <div class="carousel-progress">
+            <div class="carousel-progress-bar" id="carousel-progress-bar"></div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -167,9 +258,13 @@
       <div class="contato__content">
         <span class="section-tag">Contato</span>
         <h2 class="section-title">Vamos caminhar juntos?</h2>
-        <p class="contato__text">Dar o primeiro passo nem sempre é fácil, mas é sempre corajoso. Se algo em você ressoa
-          com o que leu até aqui, entre em contato. Será um prazer te acolher e construirmos juntos um caminho que faça
-          sentido pra você.</p>
+        <p class="contato__text">Dar o primeiro passo nem sempre é fácil, mas é sempre corajoso. Se algo em você ressoa com o que leu até aqui, entre em contato. Será um prazer te ouvir e construir junto um caminho que faça sentido pra você.</p>
+        <p class="section-tag">Atendimentos presenciais</p>
+          <p class="contato__text">
+            <a href="https://maps.app.goo.gl/mKM9ETDVXbFeKbLU6" target="_blank" rel="noopener noreferrer">
+              Praça Quinze de Novembro, 153, Sala 702, Centro, Florianópolis.
+            </a>
+          </p>
         <div class="contato__actions">
           <a href="https://api.whatsapp.com/send?phone=5548988144546&text=Ol%C3%A1%2C%20Renata!%20Estava%20no%20seu%20site%20e%20gostaria%20de%20saber%20mais%20sobre%20o%20seu%20trabalho."
             target="_blank" rel="noopener noreferrer" class="btn btn--primary btn--lg" id="cta-whatsapp-main">
@@ -187,6 +282,7 @@
             </svg>
             Enviar e-mail
           </a>
+          
         </div>
       </div>
     </div>
@@ -217,7 +313,7 @@
   <!-- ====== FOOTER ====== -->
   <footer class="footer">
     <div class="container">
-      <p class="footer__copy">&copy; 2025 Renata Miguez — Psicóloga CRP 00/00000</p>
+      <p class="footer__copy">&copy; 2026 Psicóloga Renata Miguez CRP-12/31282</p>
     </div>
   </footer>
 
