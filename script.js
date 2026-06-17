@@ -162,7 +162,7 @@ const SERVICE_DATA = {
 <p>Ao longo desse processo, trabalhamos questões emocionais, relacionais e existenciais, buscando compreender e transformar fatores que possam estar gerando ansiedade, angústia, medo, insegurança ou outros sentimentos e padrões de comportamento que impactam negativamente a sua vida cotidiana e as suas relações.</p>
 <p>Cada processo é construído de forma singular, respeitando o tempo, a história e as necessidades de cada pessoa.</p>
 <p>Meu trabalho é fundamentado na Gestalt-terapia e na Psicoterapia de Abordagem Biocêntrica, duas perspectivas clínicas centradas na presença e na conexão com a sua potência de vida.</p>
-<p>Os atendimentos são realizados de forma individual para jovens e adultos. As modalidades de atendimento são online ou presencial no endereço: <strong><a href="https://maps.app.goo.gl/mKM9ETDVXbFeKbLU6" target="_blank" rel="noopener noreferrer">Praça Quinze de Novembro, 153, Sala 702, Centro, Florianópolis.</a></strong></p>`,
+<p>Os atendimentos são realizados de forma individual para jovens e adultos. As modalidades de atendimento são online ou presencial no endereço: <strong><a href="https://maps.app.goo.gl/mKM9ETDVXbFeKbLU6" target="_blank" rel="noopener noreferrer">Praça XV de Novembro, 153, Sala 702, Centro, Florianópolis.</a></strong></p>`,
   },
   atendimento: {
     title: 'AT com suporte Clínico (Acompanhamento Terapêutico)',
@@ -259,10 +259,12 @@ function initCarousel() {
   if (!track || slides.length === 0) return;
 
   let currentIndex = 0;
-  const slideDuration = 10000; // 10 seconds
+  const slideDuration = 13000; // 13 seconds
   let startTime;
   let animationFrame;
   let isTransitioning = false;
+  let isPaused = false;
+  let elapsedBeforePause = 0;
 
   function updateCarousel(index, smooth = true) {
     if (smooth) {
@@ -296,7 +298,7 @@ function initCarousel() {
       nextIndex = 0;
     }
     updateCarousel(nextIndex);
-    startProgress();
+    resetProgress();
   }
 
   function prevSlide() {
@@ -306,20 +308,23 @@ function initCarousel() {
       prevIndex = slides.length - 1;
     }
     updateCarousel(prevIndex);
-    startProgress();
+    resetProgress();
   }
 
   function startProgress() {
     cancelAnimationFrame(animationFrame);
-    startTime = performance.now();
+    startTime = performance.now() - elapsedBeforePause;
 
     function animateProgress(time) {
+      if (isPaused) return;
+
       const elapsed = time - startTime;
       let progress = (elapsed / slideDuration) * 100;
 
       if (progress >= 100) {
         progress = 100;
         progressBar.style.width = `${progress}%`;
+        elapsedBeforePause = 0;
         nextSlide();
         return;
       }
@@ -331,11 +336,45 @@ function initCarousel() {
     animationFrame = requestAnimationFrame(animateProgress);
   }
 
+  function pauseProgress() {
+    if (isPaused) return;
+    isPaused = true;
+    cancelAnimationFrame(animationFrame);
+    elapsedBeforePause = performance.now() - startTime;
+    if (elapsedBeforePause < 0) elapsedBeforePause = 0;
+    if (elapsedBeforePause > slideDuration) elapsedBeforePause = slideDuration;
+  }
+
+  function resumeProgress() {
+    if (!isPaused) return;
+    isPaused = false;
+    startProgress();
+  }
+
+  function resetProgress() {
+    cancelAnimationFrame(animationFrame);
+    elapsedBeforePause = 0;
+    progressBar.style.width = '0%';
+    if (!isPaused) {
+      startProgress();
+    }
+  }
+
+  // Attach pause/resume events on testimonials cards
+  const testimonialCards = document.querySelectorAll('.depoimento-card');
+  testimonialCards.forEach(card => {
+    card.addEventListener('mouseenter', pauseProgress);
+    card.addEventListener('mouseleave', resumeProgress);
+    card.addEventListener('touchstart', pauseProgress, { passive: true });
+    card.addEventListener('touchend', resumeProgress, { passive: true });
+    card.addEventListener('touchcancel', resumeProgress, { passive: true });
+  });
+
   indicators.forEach((indicator, index) => {
     indicator.addEventListener('click', () => {
       if (isTransitioning) return;
       updateCarousel(index);
-      startProgress();
+      resetProgress();
     });
   });
 
@@ -366,14 +405,14 @@ function initCarousel() {
   if (container) {
     container.addEventListener('touchstart', (e) => {
       if (window.innerWidth > 960) return;
-      touchStartX = e.changedTouches[0].screenX;
-      touchStartY = e.changedTouches[0].screenY;
+      touchStartX = e.touches[0].clientX;
+      touchStartY = e.touches[0].clientY;
     }, { passive: true });
 
     container.addEventListener('touchend', (e) => {
       if (window.innerWidth > 960) return;
-      touchEndX = e.changedTouches[0].screenX;
-      touchEndY = e.changedTouches[0].screenY;
+      touchEndX = e.changedTouches[0].clientX;
+      touchEndY = e.changedTouches[0].clientY;
       handleSwipe();
     }, { passive: true });
   }

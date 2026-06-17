@@ -498,13 +498,13 @@ ul {
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  min-height: 400px;
+  min-height: 500px;
   cursor: pointer;
 }
 
 @media (min-width: 768px) {
   .service-card {
-    aspect-ratio: 343 / 605;
+    aspect-ratio: 343 / 640;
   }
 }
 
@@ -582,7 +582,7 @@ ul {
   flex-direction: column;
   justify-content: flex-end;
   gap: 1.125rem;
-  background: linear-gradient(180deg, rgba(247, 245, 233, 0) 23%, rgba(247, 245, 233, 0.9) 60%, rgba(255, 255, 255 , 1) 100%);
+  background: linear-gradient(180deg, rgba(247, 245, 233, 0) 25%, rgba(247, 245, 233, 0.85) 60%, rgba(255, 255, 255 , 1) 100%);
   height: 100%;
 }
 
@@ -769,6 +769,7 @@ ul {
   max-width: 800px;
   margin: 0 auto;
   overflow: hidden;
+  touch-action: pan-y;
 }
 
 .carousel-track {
